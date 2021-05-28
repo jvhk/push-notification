@@ -1,10 +1,7 @@
-console.log('Service worker loaded');
+self.addEventListener('push', event => {
+  const data = event.data.json();
 
-self.addEventListener('push', e => {
-    const data = e.data.json();
-    console.log('Push received!');
-    self.registration.showNotification(data.title, {
-        body:'Notified by Joao',
-        icon: 'https://logospng.org/wp-content/uploads/jordan.png'
-    });
-})
+  self.registration.showNotification(data.title, {
+    body: 'Yay it works!',
+  });
+});
